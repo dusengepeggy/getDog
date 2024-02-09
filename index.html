@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+
+</head>
+
+<body>
+    <div id="container">
+        <img id="dog" src="./img/aesthetic-grunge-desktop-wallpaper-i1y44vn02gko2rei.jpg" alt="dog image">
+        <button id="getDog"> Get dog </button>
+    </div>
+    <script>
+        var btn = document.getElementById("getDog");
+        var dog = document.getElementById("dog");
+
+       
+        btn.addEventListener("click", ()=> {
+            fetch("https://random.dog/woof.json")
+                .then(res => res.json())
+                .then(b => {
+                    dog.src = b.url;
+                })
+                .catch(err=>console.log(err))
+            
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>
